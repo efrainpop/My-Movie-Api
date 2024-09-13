@@ -11,3 +11,10 @@ def message():# definimos una funcion de la ruta
 @app.get('/movies', tags=['Movies']) #definiendo una ruta
 def movies():# definimos una funcion de la ruta
     return  movies_list
+
+@app.get('/movies/{id}', tags=['Movies']) #app get consultar por id
+def get_movie(id:int):# definimos una funcion de la ruta
+    for item in movies_list:
+        if item['id'] == id:
+            return item
+    return[]
